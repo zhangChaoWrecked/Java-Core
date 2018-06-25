@@ -39,7 +39,7 @@ class Test implements Runnable {
     @Override
     public void run() {
         try {
-            Thread.sleep(1000 + (int) (Math.random() * 3000));
+            //Thread.sleep(1000 + (int) (Math.random() * 3000));
             System.out.println(next());
         } catch (Exception e) {
             e.printStackTrace();
