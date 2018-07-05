@@ -3,16 +3,19 @@ package com.puzzle.thread;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
-/**
- * Created by Administrator on 2018/6/25 0025.
- */
+
 public class CyclicBarrierTest {
     public static void main(String[] args) throws InterruptedException {
         new CyclicBarrierTest().go();
     }
     private void go() throws InterruptedException {
-        // 初始化栅栏的参与者数为3
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
+        // 初始化栅栏的参与者数为3 添加都到达屏障时要执行的Runnable任务
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(3, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("三个线程都执行完了");
+            }
+        });
         // 依次创建3个线程,并启动
         new Thread(new Task(cyclicBarrier), "Thread1").start();
         Thread.sleep(1000);
