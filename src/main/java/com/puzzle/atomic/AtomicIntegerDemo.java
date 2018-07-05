@@ -8,16 +8,17 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by Administrator on 2018/7/5 0005.
  */
+
+/**
+ * 原子更新Demo
+ */
 public class AtomicIntegerDemo {
     static CountDownLatch countDownLatch = new CountDownLatch(1000);
     static AtomicInteger atomicInteger = new AtomicInteger(0);
     static int count = 0;
 
     public static void main(String[] args) throws InterruptedException {
-
-
-        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("market-pool-%d").build();
-
+        ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("AtomicInteger-pool-%d").build();
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(100, 200, 0, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<Runnable>(), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
         for (int i = 0; i < 1000; i++) {
             threadPoolExecutor.execute(new Runnable() {
@@ -36,7 +37,6 @@ public class AtomicIntegerDemo {
                     }
                     count ++;
                     countDownLatch.countDown();
-
                 }
             });
         }
