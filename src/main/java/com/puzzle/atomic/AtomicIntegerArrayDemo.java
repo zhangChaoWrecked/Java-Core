@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicIntegerArray;
  */
 
 /**
- * 原子更新Demo
+ //AtomicIntegerArray对传入的value数组进行更改时不影响原value数组对应的值
  */
 public class AtomicIntegerArrayDemo {
     static CountDownLatch countDownLatch = new CountDownLatch(1000);
