@@ -41,6 +41,7 @@ public class AtomicIntegerArrayDemo {
                 }
             });
         }
+
         countDownLatch.await();
         System.out.println("线程安全的AtmicIntegerArray" + atomicIntegerArray.get(0));
         System.out.println("非线程安全的IntegerArray" + value[0]);
