@@ -1,4 +1,4 @@
-package com.puzzle.collection.deque;
+package com.puzzle.collection.queue;
 
 import java.util.ArrayDeque;
 import java.util.PriorityQueue;
