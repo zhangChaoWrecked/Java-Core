@@ -2,9 +2,7 @@ package com.puzzle.collection.deque;
 
 import java.util.ArrayDeque;
 
-/**
- * Created by Administrator on 2018/7/19 0019.
- */
+//数组双端队列 底层数组结构
 public interface ArrayDequeDemo {
 
     public static void main(String[] args) {
