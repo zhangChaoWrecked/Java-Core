@@ -14,7 +14,7 @@ public class SemaphoreDemo {
     public static void main(String[] args) throws InterruptedException {
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("market-pool-%d").build();
         Semaphore semaphore = new Semaphore(20);
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(100, 200, 0, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<Runnable>(), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(20, 200, 0, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<Runnable>(), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
         for (int i = 0; i < 100; i++) {
             threadPoolExecutor.execute(new Runnable() {
                 @Override
